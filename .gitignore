@@ -2,3 +2,5 @@
 /.idea/
 /apexcharts/target/
 /demo/target/
+node_modules
+target/

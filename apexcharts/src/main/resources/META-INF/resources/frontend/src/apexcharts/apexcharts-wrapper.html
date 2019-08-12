@@ -96,8 +96,8 @@
                 var div = document.createElement('div');
                 this.appendChild(div);
                 this.updateConfig();
-                this.chart = new ApexCharts(div, this.config);
-                this.chart.render();
+                this.chartObj = new ApexCharts(div, this.config);
+                this.chartObj.render();
             }
 
             updateConfig(){
@@ -218,10 +218,17 @@
                     }
                 }
             }
+
+            updateData() {
+                if (this.chartObj) {
+                    this.chartObj.updateSeries(JSON.parse(this.series))
+                }
+            }
+
             render() {
-                if (this.chart) {
+                if (this.chartObj) {
                     this.updateConfig();
-                    this.chart.render();
+                    this.chartObj.render();
                 }
             }
         }
